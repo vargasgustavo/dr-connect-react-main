@@ -1,58 +1,60 @@
 import React, { useState, useEffect } from "react";
 import "../css/pacientestyle.css";
 import axiosInstance from "../axios";
-import { useParams } from "react-router-dom";
-import FeedBack from "../Layouts/FeedBack";
+import Swal from "sweetalert2";
 import logoCard from "../images/logo-card-login.svg";
 
-const CadastroMain = (props) => {
-  const [feedBack, setfeedBack] = useState(false);
-  const [isOk, setIsOk] = useState(false);
+const CadastroMain = ({ Data }) => {
+  const [Id, setId] = useState("");
+  const [Nome, setNome] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Senha, setSenha] = useState("");
+  const [ConfSenha, setConfSenha] = useState("");
 
-  const pathParam = useParams("id");
-  const [user, setUser] = useState(null);
-
-  const [form, setForm] = useState({
-    nome: "",
-    email: "",
-    senha: "",
-    confsenha: "",
-  });
-  const updateForm = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-  // ... spread operation --> copia de uma lista ou dicionario
-
-  const submitForm = async (e) => {
-    e.preventDefault();
-    try {
-      if (!pathParam.id) {
-        const res = await axiosInstance.post("/paciente", form);
-
-        const data = await res.data;
-        setfeedBack(true);
-        setIsOk(true);
-      } else {
-        const res = await axiosInstance.put(`/paciente/${pathParam.id}`, form);
-
-        const data = await res.data;
-        setfeedBack(true);
-        setIsOk(true);
-        setTimeout(() => setfeedBack(false), 1000);
-      }
-    } catch (ex) {
-      console.log(ex);
-      setfeedBack(true);
-      setIsOk(false);
+  useEffect(() => {
+    if (!!Data) {
+      setNome(Data?.nome);
+      setEmail(Data?.email);
+      setSenha(Data?.senha);
+      setConfSenha(Data?.confsenha);
     }
-  };
+  }, [Data]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const data = {
+      nome: Nome,
+      email: Email,
+      senha: Senha,
+      confsenha: ConfSenha,
+    };
+
+    if (!!Id) {
+      axiosInstance.put(`clientes`, data).then((response) => {
+        Swal.fire({
+          title: "success",
+          text: response.data?.response,
+          icon: "success",
+        });
+      });
+    } else {
+      axiosInstance.post(`clientes`, data).then((response) => {
+        Swal.fire({
+          title: "success",
+          text: response.data?.response,
+          icon: "success",
+        });
+      });
+    }
+  }
 
   return (
     <div>
       <div className="main-login-edit">
         <div className="right-login-edit">
           <h1 className="sub">Edite seu perfil</h1>
-          <div className="card-login-edit">
+          <div className="card-login-edit" onSubmit={handleSubmit}>
             <div className="title-a">
               <a>Bem Vindo(a) ao</a>
             </div>
@@ -66,8 +68,8 @@ const CadastroMain = (props) => {
                 name="nome"
                 placeholder="Digite seu nome..."
                 required
-                onChange={updateForm}
-                value={form.nome}
+                onChange={(e) => setNome(e.target.value)}
+                value={Nome}
               />
             </div>
             <div className="textfield-edit">
@@ -77,8 +79,8 @@ const CadastroMain = (props) => {
                 name="email"
                 placeholder="Coloque seu e-mail"
                 required
-                onChange={updateForm}
-                value={form.email}
+                onChange={(e) => setEmail(e.target.value)}
+                value={Email}
               />
             </div>
             <div className="textfield-edit">
@@ -88,8 +90,8 @@ const CadastroMain = (props) => {
                 name="senha"
                 placeholder="Senha"
                 required
-                onChange={updateForm}
-                value={form.senha}
+                onChange={(e) => setSenha(e.target.value)}
+                value={Senha}
               />
             </div>
             <div className="textfield-edit">
@@ -99,8 +101,8 @@ const CadastroMain = (props) => {
                 name="confsenha"
                 placeholder="Confirmar Senha"
                 required
-                onChange={updateForm}
-                value={form.confsenha}
+                onChange={(e) => setConfSenha(e.target.value)}
+                value={ConfSenha}
               />
               <p>
                 Ao criar uma conta, você aceita os termos e condições de uso da
@@ -110,9 +112,9 @@ const CadastroMain = (props) => {
             </div>
             <button
               className="button-login trasitionButton"
-              onClick={submitForm}
+              type="submit"
             >
-              Salvar Alterações
+              Salvar
             </button>
           </div>
         </div>
