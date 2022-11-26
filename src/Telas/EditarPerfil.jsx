@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../css/pacientestyle.css";
 import axiosInstance from "../axios";
 import Swal from "sweetalert2";
 import logoCard from "../images/logo-card-login.svg";
 
 const CadastroMain = ({ Data }) => {
-  const [Id, setId] = useState("");
-  const [Nome, setNome] = useState("");
-  const [Email, setEmail] = useState("");
-  const [Senha, setSenha] = useState("");
-  const [ConfSenha, setConfSenha] = useState("");
+  const [Id, setId] = React.useState("");
+  const [Nome, setNome] = React.useState("");
+  const [Email, setEmail] = React.useState("");
+  const [Senha, setSenha] = React.useState("");
+  const [ConfSenha, setConfSenha] = React.useState("");
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!!Data) {
       setNome(Data?.nome);
       setEmail(Data?.email);
@@ -31,7 +31,7 @@ const CadastroMain = ({ Data }) => {
     };
 
     if (!!Id) {
-      axiosInstance.put(`clientes`, data).then((response) => {
+      axiosInstance.put(`doctors`, data).then((response) => {
         Swal.fire({
           title: "success",
           text: response.data?.response,
@@ -39,7 +39,7 @@ const CadastroMain = ({ Data }) => {
         });
       });
     } else {
-      axiosInstance.post(`clientes`, data).then((response) => {
+      axiosInstance.post(`doctors`, data).then((response) => {
         Swal.fire({
           title: "success",
           text: response.data?.response,
