@@ -16,8 +16,8 @@ const HomeMain = ({ value, onChange }) => {
   return (
     <>
       <div className="body">
-        <div className="header-body">
-          <div className="left-header-body">
+        <div className="header-body-home">
+          <div className="left-header-body-home">
             <h1>
               CONECTANDO
               <br />
@@ -25,7 +25,7 @@ const HomeMain = ({ value, onChange }) => {
               PACIENTES
             </h1>
           </div>
-          <div className="right-header-body">
+          <div className="right-header-body-home">
             <img alt="Doutora sorrindo" src={Doc} className="doctor-image" />
           </div>
         </div>
