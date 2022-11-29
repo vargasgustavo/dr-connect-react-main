@@ -51,22 +51,22 @@ const CadastroPaciente = () => {
 
   return (
     <div>
-      <div class="main-login">
-        <div class="left-login">
+      <div class="main-login-pro">
+        <div class="left-login-pro">
           <h1>
             Cadastre-se e tenha
             <br />o melhor atendimento
           </h1>
         </div>
-        <div class="right-login">
-          <div class="card-login-patient">
-            <div class="title-a">
+        <div class="right-login-pro">
+          <div class="card-login-patient-pro">
+            <div class="title-a-pro">
               <a>Bem Vindo(a) ao</a>
             </div>
-            <div class="title">
-              <img src={logoCard} class="title-image" />
+            <div class="title-pro">
+              <img src={logoCard} class="title-image-pro" />
             </div>
-            <div class="textfield">
+            <div class="textfield-pro">
               <label for="name">Nome</label>
               <input
                 type="text"
@@ -76,7 +76,7 @@ const CadastroPaciente = () => {
                 value={form.name}
               />
             </div>
-            <div class="textfield">
+            <div class="textfield-pro">
               <label for="date">Data de Nascimento</label>
               <input
                 type="date"
@@ -86,7 +86,7 @@ const CadastroPaciente = () => {
                 value={form.birthDate}
               />
             </div>
-            <div class="textfield">
+            <div class="textfield-pro">
               <label for="telefone">Telefone</label>
               <input
                 type="tel"
@@ -98,7 +98,7 @@ const CadastroPaciente = () => {
                 value={form.phoneNumber}
               />
             </div>
-            <div class="textfield">
+            <div class="textfield-pro">
               <label for="CEP">CEP</label>
               <input
                 type="text"
@@ -111,7 +111,7 @@ const CadastroPaciente = () => {
                 value={form.cep}
               />
             </div>
-            <div class="textfield">
+            <div class="textfield-pro">
               <label for="CPF">CPF</label>
               <input
                 type="text"
@@ -124,7 +124,7 @@ const CadastroPaciente = () => {
                 value={form.cpf}
               />
             </div>
-            <div class="textfield">
+            <div class="textfield-pro">
               <label for="numero">Número</label>
               <input
                 type="number"
@@ -135,7 +135,7 @@ const CadastroPaciente = () => {
                 value={form.numberStreet}
               />
             </div>
-            <div class="textfield">
+            <div class="textfield-pro">
               <label for="complemento">Complemento</label>
               <input
                 type="text"
@@ -151,7 +151,7 @@ const CadastroPaciente = () => {
                 privacidade.
               </p>
             </div>
-            <button onClick={submitForm} class="btn-login trasitionButton">
+            <button onClick={submitForm} class="btn-login trasitionButton-pro">
               Prosseguir
             </button>
           </div>

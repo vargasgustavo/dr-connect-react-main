@@ -53,22 +53,22 @@ const CadastroMedico = () => {
 
   return (
     <div>
-      <div className="main-login">
-        <div className="left-login">
+      <div className="main-login-profile">
+        <div className="left-login-profile">
           <h1>
             Cadastre-se e tenha
             <br />o melhor atendimento
           </h1>
         </div>
-        <div className="right-login">
-          <div className="card-login-medic">
-            <div className="title-a">
+        <div className="right-login-profile">
+          <div className="card-login-medic-profile">
+            <div className="title-a-profile">
               <a>Bem Vindo(a) ao</a>
             </div>
             <div className="title">
-              <img src={logoCard} className="title-image" />
+              <img src={logoCard} className="title-image-profile" />
             </div>
-            <div className="textfield">
+            <div className="textfield-profile">
               <label for="nome">Nome</label>
               <input
                 type="text"
@@ -79,7 +79,7 @@ const CadastroMedico = () => {
                 value={form.name}
               />
             </div>
-            <div className="textfield">
+            <div className="textfield-profile">
               <label for="crm">CRM</label>
               <input
                 id="crm"
@@ -91,7 +91,7 @@ const CadastroMedico = () => {
                 value={form.crm}
               />
             </div>
-            <div className="textfield">
+            <div className="textfield-profile">
               <label for="speciality">Especialidade</label>
               <input
                 id="speciality"
@@ -103,7 +103,7 @@ const CadastroMedico = () => {
                 value={form.speciality}
               />
             </div>
-            <div className="textfield">
+            <div className="textfield-profile">
               <label for="medicalInsurance">Plano de Saúde</label>
               <input
                 id="medicalInsurance"
@@ -115,7 +115,7 @@ const CadastroMedico = () => {
                 value={form.medicalInsurance}
               />
             </div>
-            <div className="textfield">
+            <div className="textfield-profile">
               <label for="phoneNumber">Telefone</label>
               <input
                 id="phoneNumber"
@@ -128,7 +128,7 @@ const CadastroMedico = () => {
               />
             </div>
 
-            <div className="textfield">
+            <div className="textfield-profile">
               <label for="cep">CEP</label>
               <input
                 id="cep"
@@ -140,7 +140,7 @@ const CadastroMedico = () => {
                 value={form.cep}
               />
             </div>
-            <div className="textfield">
+            <div className="textfield-profile">
               <label for="numberStreet">Número</label>
               <input
                 id="numberStreet"
@@ -152,7 +152,7 @@ const CadastroMedico = () => {
                 value={form.numberStreet}
               />
             </div>
-            <div className="textfield">
+            <div className="textfield-profile">
               <label for="complemento">Complemento</label>
               <input
                 id="complemento"
@@ -169,7 +169,7 @@ const CadastroMedico = () => {
               privacidade.
             </p>
           </div>
-          <button onClick={submitForm} className="btn-login trasitionButton">
+          <button onClick={submitForm} className="btn-login trasitionButton-profile">
             Prosseguir
           </button>
         </div>

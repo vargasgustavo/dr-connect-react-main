@@ -11,7 +11,7 @@ const Login = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [role, setrole] = React.useState("ROLE_DOCTOR");
+  const [role, setrole] = React.useState("ROLE_PATIENT");
 
   function onChangeValue(event) {
     setrole(event.target.value);

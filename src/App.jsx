@@ -20,9 +20,9 @@ const App = () => {
 
   return (
     <>
-      <Header role={role} loggedIn={!loggedIn} />
+      <Header role={role} loggedIn={loggedIn} />
       <Routes>
-        {!loggedIn ? (
+        {loggedIn ? (
           <>
             {role == "ROLE_DOCTOR" ? (
               <>
