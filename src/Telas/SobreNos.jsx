@@ -30,7 +30,7 @@ const SobreNos = () => {
         </div>
       </div>
       <div class="footer">
-        <div class="header-footer">
+        <div class="header-footer-nos">
           <div class="first-image">
             <img src={Image1} alt="" />
           </div>
